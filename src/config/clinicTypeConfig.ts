@@ -41,6 +41,7 @@ export const clinicTypeOptions: ClinicTypeOption[] = [
   { value: "cardiology", label: "Cardiology Clinic", description: "Heart & cardiovascular care", icon: Heart, comingSoon: true },
   { value: "ent", label: "ENT Clinic", description: "Ear, nose & throat specialist", icon: Ear, comingSoon: true },
   { value: "general", label: "General Practice", description: "Primary care & family medicine", icon: Stethoscope, comingSoon: true },
+  { value: "diagnostic", label: "Diagnostic Centre", description: "Laboratory, imaging & pharmacy services", icon: Microscope, comingSoon: false },
 ];
 
 const dentalNav: NavGroup[] = [
