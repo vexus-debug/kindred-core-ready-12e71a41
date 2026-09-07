@@ -64,6 +64,31 @@ import TreatmentMaterialsPage from "./pages/dashboard/TreatmentMaterialsPage";
 import AdvancedAnalyticsPage from "./pages/dashboard/AdvancedAnalyticsPage";
 import ShopManagementPage from "./pages/dashboard/ShopManagementPage";
 
+// Diagnostic centre — laboratory
+import LabOverviewPage from "./pages/dashboard/lab/LabOverviewPage";
+import TestFormsPage from "./pages/dashboard/lab/TestFormsPage";
+import NewTestFormPage from "./pages/dashboard/lab/NewTestFormPage";
+import ResultEntryPage from "./pages/dashboard/lab/ResultEntryPage";
+import ResultsSearchPage from "./pages/dashboard/lab/ResultsSearchPage";
+import ManageTestsPage from "./pages/dashboard/lab/ManageTestsPage";
+import ScientistsPage from "./pages/dashboard/lab/ScientistsPage";
+import LabPreferencesPage from "./pages/dashboard/lab/LabPreferencesPage";
+
+// Diagnostic centre — imaging
+import ImagingOverviewPage from "./pages/dashboard/imaging/ImagingOverviewPage";
+import ScanPatientsPage from "./pages/dashboard/imaging/ScanPatientsPage";
+import ScansPage from "./pages/dashboard/imaging/ScansPage";
+import RegisterScanPage from "./pages/dashboard/imaging/RegisterScanPage";
+import ScanAppointmentsPage from "./pages/dashboard/imaging/ScanAppointmentsPage";
+import ScanActivityPage from "./pages/dashboard/imaging/ScanActivityPage";
+
+// Diagnostic centre — pharmacy
+import DrugStockPage from "./pages/dashboard/pharmacy/DrugStockPage";
+import DispensingPage from "./pages/dashboard/pharmacy/DispensingPage";
+
+// Public result lookup
+import PublicResultPage from "./pages/PublicResultPage";
+
 // Marketing pages
 import MarketingOverviewPage from "./pages/dashboard/marketing/MarketingOverviewPage";
 import EmailBlastsPage from "./pages/dashboard/marketing/EmailBlastsPage";
@@ -134,6 +159,7 @@ const App = () => (
             <Route path="/site/:slug" element={<PublicClinicSite />} />
             <Route path="/site/:slug/shop" element={<PublicShopPage />} />
             <Route path="/site/:slug/shop/:productId" element={<PublicProductPage />} />
+            <Route path="/result" element={<PublicResultPage />} />
             <Route path="/select-clinic" element={<SelectClinic />} />
 
             {/* Legacy redirect */}
@@ -214,6 +240,28 @@ const App = () => (
               <Route path="lab/technicians" element={<LabTechniciansPage />} />
               <Route path="lab/billing" element={<LabBillingPage />} />
               <Route path="lab/settings" element={<LabSettingsPage />} />
+
+              {/* Diagnostic centre — laboratory */}
+              <Route path="diagnostics" element={<LabOverviewPage />} />
+              <Route path="diagnostics/forms" element={<TestFormsPage />} />
+              <Route path="diagnostics/forms/new" element={<NewTestFormPage />} />
+              <Route path="diagnostics/forms/:serial" element={<ResultEntryPage />} />
+              <Route path="diagnostics/results" element={<ResultsSearchPage />} />
+              <Route path="diagnostics/tests" element={<ManageTestsPage />} />
+              <Route path="diagnostics/scientists" element={<ScientistsPage />} />
+              <Route path="diagnostics/settings" element={<LabPreferencesPage />} />
+
+              {/* Diagnostic centre — imaging */}
+              <Route path="imaging" element={<ImagingOverviewPage />} />
+              <Route path="imaging/patients" element={<ScanPatientsPage />} />
+              <Route path="imaging/scans" element={<ScansPage />} />
+              <Route path="imaging/register" element={<RegisterScanPage />} />
+              <Route path="imaging/appointments" element={<ScanAppointmentsPage />} />
+              <Route path="imaging/activity" element={<ScanActivityPage />} />
+
+              {/* Diagnostic centre — pharmacy */}
+              <Route path="pharmacy/drugs" element={<DrugStockPage />} />
+              <Route path="pharmacy/dispensing" element={<DispensingPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

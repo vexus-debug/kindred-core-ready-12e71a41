@@ -75,7 +75,7 @@ export default function LabOverviewPage() {
     <div className="space-y-6">
       <PageHeader title="Laboratory Overview" description="Live workload, turnaround and activity">
         <Button asChild size="sm" className="bg-secondary hover:bg-secondary/90">
-          <Link to={`${basePath}/lab/forms/new`}><Plus className="mr-2 h-4 w-4" /> New Test Form</Link>
+          <Link to={`${basePath}/diagnostics/forms/new`}><Plus className="mr-2 h-4 w-4" /> New Test Form</Link>
         </Button>
       </PageHeader>
 

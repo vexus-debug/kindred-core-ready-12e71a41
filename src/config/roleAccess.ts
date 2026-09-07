@@ -51,6 +51,24 @@ export const PAGE_ROLE_ACCESS: Record<string, OrgRole[]> = {
   "marketing/promotions": ["owner", "admin"],
   "marketing/recall": ["owner", "admin", "receptionist"],
   "marketing/analytics": ["owner", "admin"],
+  // Diagnostic centre — laboratory
+  "diagnostics": ["owner", "admin", "lab_technician", "lab_assistant", "dentist"],
+  "diagnostics/forms": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist"],
+  "diagnostics/forms/new": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist"],
+  "diagnostics/results": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist", "dentist"],
+  "diagnostics/tests": ["owner", "admin", "lab_technician"],
+  "diagnostics/scientists": ["owner", "admin", "lab_technician"],
+  "diagnostics/settings": ["owner", "admin"],
+  // Diagnostic centre — imaging
+  "imaging": ["owner", "admin", "lab_technician", "lab_assistant", "dentist"],
+  "imaging/patients": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist"],
+  "imaging/scans": ["owner", "admin", "lab_technician", "lab_assistant", "dentist"],
+  "imaging/register": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist"],
+  "imaging/appointments": ["owner", "admin", "lab_technician", "lab_assistant", "receptionist"],
+  "imaging/activity": ["owner", "admin", "lab_technician"],
+  // Diagnostic centre — pharmacy
+  "pharmacy/drugs": ["owner", "admin", "receptionist", "assistant"],
+  "pharmacy/dispensing": ["owner", "admin", "receptionist", "assistant"],
 };
 
 /**

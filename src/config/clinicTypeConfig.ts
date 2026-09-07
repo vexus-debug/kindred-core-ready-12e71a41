@@ -5,6 +5,7 @@ import {
   FileCheck, FolderOpen, Eye, Heart, Baby, Bone, Ear, Wallet, FileText,
   PiggyBank, TrendingUp, Calculator, Clock, CalendarClock, Truck,
   ShoppingCart, Link2, LineChart, Globe, Megaphone, Mail, CalendarRange, Ticket, BadgeCheck,
+  ScanLine, Pill, FileSearch,
 } from "lucide-react";
 
 export interface NavItem {
@@ -41,6 +42,7 @@ export const clinicTypeOptions: ClinicTypeOption[] = [
   { value: "cardiology", label: "Cardiology Clinic", description: "Heart & cardiovascular care", icon: Heart, comingSoon: true },
   { value: "ent", label: "ENT Clinic", description: "Ear, nose & throat specialist", icon: Ear, comingSoon: true },
   { value: "general", label: "General Practice", description: "Primary care & family medicine", icon: Stethoscope, comingSoon: true },
+  { value: "diagnostic", label: "Diagnostic Centre", description: "Laboratory, imaging & pharmacy services", icon: Microscope, comingSoon: false },
 ];
 
 const dentalNav: NavGroup[] = [
@@ -143,10 +145,93 @@ const extraItems: NavItem[] = [
   { title: "Subscription", path: "subscription", icon: BadgeCheck },
 ];
 
+const diagnosticNav: NavGroup[] = [
+  {
+    label: "Overview",
+    items: [
+      { title: "Dashboard", path: "dashboard", icon: LayoutDashboard },
+    ],
+  },
+  {
+    label: "Laboratory",
+    items: [
+      { title: "Lab Overview", path: "diagnostics", icon: Microscope },
+      { title: "Test Forms", path: "diagnostics/forms", icon: ClipboardList },
+      { title: "Result Search", path: "diagnostics/results", icon: FileSearch },
+      { title: "Manage Tests", path: "diagnostics/tests", icon: FlaskConical },
+      { title: "Scientists", path: "diagnostics/scientists", icon: Users },
+      { title: "Lab Settings", path: "diagnostics/settings", icon: Wrench },
+    ],
+  },
+  {
+    label: "Imaging",
+    items: [
+      { title: "Imaging Overview", path: "imaging", icon: ScanLine },
+      { title: "Scan Patients", path: "imaging/patients", icon: Users },
+      { title: "Scans", path: "imaging/scans", icon: ScanLine },
+      { title: "Scan Appointments", path: "imaging/appointments", icon: CalendarDays },
+      { title: "Scan Activity", path: "imaging/activity", icon: Shield },
+    ],
+  },
+  {
+    label: "Pharmacy",
+    items: [
+      { title: "Drug Stock", path: "pharmacy/drugs", icon: Pill },
+      { title: "Dispensing", path: "pharmacy/dispensing", icon: Package },
+    ],
+  },
+  {
+    label: "Patient Care",
+    items: [
+      { title: "Patients", path: "patients", icon: Users },
+      { title: "Appointments", path: "appointments", icon: CalendarDays },
+      { title: "Waiting List", path: "waiting-list", icon: Clock },
+      { title: "Reviews", path: "reviews", icon: Star },
+    ],
+  },
+  {
+    label: "Finance",
+    items: [
+      { title: "Billing", path: "billing", icon: CreditCard },
+      { title: "Expenses", path: "expenses", icon: Receipt },
+      { title: "Revenue Allocation", path: "revenue-allocation", icon: DollarSign },
+      { title: "Profitability", path: "profitability", icon: TrendingUp },
+    ],
+  },
+  {
+    label: "Reports",
+    items: [
+      { title: "Reports", path: "reports", icon: BarChart3 },
+      { title: "Advanced Analytics", path: "analytics", icon: LineChart },
+    ],
+  },
+  {
+    label: "Inventory & Supply",
+    items: [
+      { title: "Inventory", path: "inventory", icon: Package },
+      { title: "Suppliers", path: "suppliers", icon: Truck },
+      { title: "Purchase Orders", path: "purchase-orders", icon: ShoppingCart },
+    ],
+  },
+  {
+    label: "Administration",
+    items: [
+      { title: "Staff", path: "staff", icon: UserCog },
+      { title: "Documents", path: "documents", icon: FolderOpen },
+      { title: "Audit Log", path: "audit-log", icon: Shield },
+      { title: "Website Settings", path: "website-settings", icon: Globe },
+    ],
+  },
+];
+
 export const clinicTypeConfig: Record<string, ClinicTypeConfig> = {
   dental: {
     label: "Dental Clinic",
     navGroups: dentalNav,
+  },
+  diagnostic: {
+    label: "Diagnostic Centre",
+    navGroups: diagnosticNav,
   },
   // Future clinic types will be added here with their own navGroups
 };
