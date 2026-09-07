@@ -14,6 +14,7 @@ import {
 import { motion, useInView } from "framer-motion";
 import { getTemplate, type WebsiteTemplate } from "@/config/websiteTemplates";
 import type { SiteSettings as ClinicSiteSettings } from "@/hooks/useClinicSettings";
+import CheckResultsSection from "@/components/public/CheckResultsSection";
 
 type SiteSettings = ClinicSiteSettings;
 
@@ -24,6 +25,7 @@ interface ClinicInfo {
   phone: string | null;
   email: string | null;
   logo_url: string | null;
+  clinic_type?: string | null;
   settings: SiteSettings | null;
 }
 
@@ -98,6 +100,7 @@ export default function PublicClinicSite() {
   const bookingRef = useRef<HTMLDivElement>(null);
 
   const s = clinic?.settings || {};
+  const isDiagnostic = clinic?.clinic_type === "diagnostic";
   const tpl: WebsiteTemplate = getTemplate(s.template);
   const c = tpl.colors;
   const primaryColor = s.primary_color || c.primary;
@@ -138,7 +141,7 @@ export default function PublicClinicSite() {
     const fetchClinic = async () => {
       const { data: org, error } = await supabase
         .from("organizations")
-        .select("id, name, address, phone, email, logo_url, settings")
+        .select("id, name, address, phone, email, logo_url, clinic_type, settings")
         .eq("slug", slug)
         .maybeSingle();
 
@@ -221,7 +224,7 @@ export default function PublicClinicSite() {
 
   const heroTitle = s.hero_title || s.welcome_text || `Welcome to ${clinic?.name}`;
   const heroHighlight = s.hero_highlight || "";
-  const heroSubtitle = s.hero_subtitle || s.short_description || "Professional dental care for you and your family";
+  const heroSubtitle = s.hero_subtitle || s.short_description || (isDiagnostic ? "Accurate laboratory, imaging and pharmacy services you can trust" : "Professional dental care for you and your family");
   const heroEyebrow = s.hero_eyebrow || clinic?.name || "";
 
   const heroStats = [
@@ -268,6 +271,7 @@ export default function PublicClinicSite() {
   const navLinks = [
     { id: "about", label: "About" },
     { id: "book", label: "Services & Booking" },
+    ...(isDiagnostic ? [{ id: "results", label: "Check Results" }] : []),
     { id: "reviews", label: "Reviews" },
     { id: "visit", label: "Visit" },
   ];
@@ -386,7 +390,7 @@ export default function PublicClinicSite() {
               </span>
             )}
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight tracking-tight" style={headingStyle}>
-              {s.about_title || `Dental excellence, redefined.`}
+              {s.about_title || (isDiagnostic ? `Diagnostics you can rely on.` : `Dental excellence, redefined.`)}
             </h2>
             {(s.about_body || s.short_description) && (
               <p className="mt-4 text-sm sm:text-base leading-relaxed whitespace-pre-line" style={mutedStyle}>{s.about_body || s.short_description}</p>
@@ -481,7 +485,7 @@ export default function PublicClinicSite() {
             {s.booking_section_title || "Select your services & book instantly."}
           </h2>
           <p className="mt-3 text-sm sm:text-base max-w-xl" style={{ color: darkMuted }}>
-            {s.booking_section_subtitle || "Choose a treatment, pick your dentist and time — confirmation comes straight to your phone."}
+            {s.booking_section_subtitle || (isDiagnostic ? "Choose a test or scan, pick a time — confirmation comes straight to your phone." : "Choose a treatment, pick your dentist and time — confirmation comes straight to your phone.")}
           </p>
 
           <div className="mt-8 grid lg:grid-cols-2 gap-8 items-start">
@@ -613,6 +617,17 @@ export default function PublicClinicSite() {
           )}
         </div>
       </section>
+
+      {isDiagnostic && (
+        <CheckResultsSection
+          clinicName={clinic?.name}
+          primaryColor={primaryColor}
+          cardStyle={cardStyle}
+          headingStyle={headingStyle}
+          mutedStyle={mutedStyle}
+          bg={c.bg}
+        />
+      )}
 
       {/* ───────── 4. Reviews ───────── */}
       {(reviews.length > 0 || testimonials.length > 0) && (
