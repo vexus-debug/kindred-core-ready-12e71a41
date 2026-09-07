@@ -240,6 +240,28 @@ const App = () => (
               <Route path="lab/technicians" element={<LabTechniciansPage />} />
               <Route path="lab/billing" element={<LabBillingPage />} />
               <Route path="lab/settings" element={<LabSettingsPage />} />
+
+              {/* Diagnostic centre — laboratory */}
+              <Route path="diagnostics" element={<LabOverviewPage />} />
+              <Route path="diagnostics/forms" element={<TestFormsPage />} />
+              <Route path="diagnostics/forms/new" element={<NewTestFormPage />} />
+              <Route path="diagnostics/forms/:serial" element={<ResultEntryPage />} />
+              <Route path="diagnostics/results" element={<ResultsSearchPage />} />
+              <Route path="diagnostics/tests" element={<ManageTestsPage />} />
+              <Route path="diagnostics/scientists" element={<ScientistsPage />} />
+              <Route path="diagnostics/settings" element={<LabPreferencesPage />} />
+
+              {/* Diagnostic centre — imaging */}
+              <Route path="imaging" element={<ImagingOverviewPage />} />
+              <Route path="imaging/patients" element={<ScanPatientsPage />} />
+              <Route path="imaging/scans" element={<ScansPage />} />
+              <Route path="imaging/register" element={<RegisterScanPage />} />
+              <Route path="imaging/appointments" element={<ScanAppointmentsPage />} />
+              <Route path="imaging/activity" element={<ScanActivityPage />} />
+
+              {/* Diagnostic centre — pharmacy */}
+              <Route path="pharmacy/drugs" element={<DrugStockPage />} />
+              <Route path="pharmacy/dispensing" element={<DispensingPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
