@@ -64,6 +64,31 @@ import TreatmentMaterialsPage from "./pages/dashboard/TreatmentMaterialsPage";
 import AdvancedAnalyticsPage from "./pages/dashboard/AdvancedAnalyticsPage";
 import ShopManagementPage from "./pages/dashboard/ShopManagementPage";
 
+// Diagnostic centre — laboratory
+import LabOverviewPage from "./pages/dashboard/lab/LabOverviewPage";
+import TestFormsPage from "./pages/dashboard/lab/TestFormsPage";
+import NewTestFormPage from "./pages/dashboard/lab/NewTestFormPage";
+import ResultEntryPage from "./pages/dashboard/lab/ResultEntryPage";
+import ResultsSearchPage from "./pages/dashboard/lab/ResultsSearchPage";
+import ManageTestsPage from "./pages/dashboard/lab/ManageTestsPage";
+import ScientistsPage from "./pages/dashboard/lab/ScientistsPage";
+import LabPreferencesPage from "./pages/dashboard/lab/LabPreferencesPage";
+
+// Diagnostic centre — imaging
+import ImagingOverviewPage from "./pages/dashboard/imaging/ImagingOverviewPage";
+import ScanPatientsPage from "./pages/dashboard/imaging/ScanPatientsPage";
+import ScansPage from "./pages/dashboard/imaging/ScansPage";
+import RegisterScanPage from "./pages/dashboard/imaging/RegisterScanPage";
+import ScanAppointmentsPage from "./pages/dashboard/imaging/ScanAppointmentsPage";
+import ScanActivityPage from "./pages/dashboard/imaging/ScanActivityPage";
+
+// Diagnostic centre — pharmacy
+import DrugStockPage from "./pages/dashboard/pharmacy/DrugStockPage";
+import DispensingPage from "./pages/dashboard/pharmacy/DispensingPage";
+
+// Public result lookup
+import PublicResultPage from "./pages/PublicResultPage";
+
 // Marketing pages
 import MarketingOverviewPage from "./pages/dashboard/marketing/MarketingOverviewPage";
 import EmailBlastsPage from "./pages/dashboard/marketing/EmailBlastsPage";
