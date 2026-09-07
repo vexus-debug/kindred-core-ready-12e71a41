@@ -159,6 +159,7 @@ const App = () => (
             <Route path="/site/:slug" element={<PublicClinicSite />} />
             <Route path="/site/:slug/shop" element={<PublicShopPage />} />
             <Route path="/site/:slug/shop/:productId" element={<PublicProductPage />} />
+            <Route path="/result" element={<PublicResultPage />} />
             <Route path="/select-clinic" element={<SelectClinic />} />
 
             {/* Legacy redirect */}
